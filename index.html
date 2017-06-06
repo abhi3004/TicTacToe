@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script src="angular/angular.js"></script>
+        <script src=app.js></script>
+        <link rel="stylesheet" href="bootstrap.css">
+        <title>AngularTicTacToe</title>
+	<style>
+		.col-centered{
+    		float: none;
+    		margin: 0 auto;
+		}	
+	</style>
+    </head>
+    <body ng-app="tictactoe">
+        <div ng-controller="tictactoeCtrl as tictactoe"align="center">
+        	<div class="row bg-primary text-white">
+  			<div class="col-lg-1 col-centered "><font size="3">Tic Tac Toe</font></div>
+  		</div>
+		<div class="row bg-primary text-white">
+  			<div class="col-lg-1 col-centered "><font size="3">Game-{{tictactoe.game}}</font></div>
+  		</div>
+		<div class="row bg-success text-white">
+	<div class="col-lg-6" align="center">
+	Player1<div class="col-lg-12 bg-danger text-white "align="center">{{tictactoe.xpoints}}</div></div><div class="col-lg-6 "align="center">Player2<div class="col-lg-12 bg-danger text-white"align="center">{{tictactoe.ypoints}}</div>
+</div>  </div>
+            <div class="row" ng-repeat="j in tictactoe.number1" >
+                <div class="col-xs-4 col-md-3 col-sm-2 col-lg-1" ng-class= "{'col-lg-offset-4':i==1}"ng-repeat="i in tictactoe.number1" style="padding-left: 0px;  padding-right: 0px;">
+                    
+                      <img src="square.png" class="img-responsive" ng-click="tictactoe.setState(i+3*(j-1)) " ng-if="tictactoe.xarray.indexOf(i+3*(j-1))==-1&&tictactoe.yarray.indexOf(i+3*(j-1))==-1">
+                      <img src="x.png" class="img-responsive" ng-if="tictactoe.xarray.indexOf(i+3*(j-1))>-1&&tictactoe.yarray.indexOf(i+3*(j-1))==-1">
+                      <img src="zero.png" class="img-responsive" ng-if="tictactoe.xarray.indexOf(i+3*(j-1))==-1&&tictactoe.yarray.indexOf(i+3*(j-1))>-1">
+                </div>
+        </div>
+        
+	<div class="row">
+  			<div class="col-lg-1 col-centered "><font size="5"><button type="button" class="btn btn-success btn-lg" ng-click="tictactoe.reset()">Reset</button></font></div>
+  		</div>
+	
+	<br/>
+	
+	<br/>
+	      
+</div>
+       
+    </body>
+</html>
+
